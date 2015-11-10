@@ -13,7 +13,7 @@ if ($object->xpdo) {
             $manager = $modx->getManager();
             $objects = array(
 				'sxNewsletter',
-				'scSubscriber',
+				'sxSubscriber',
 				'sxQueue',
 			);
             $schemaFile = MODX_CORE_PATH . 'components/sendex/model/schema/sendex.mysql.schema.xml';
