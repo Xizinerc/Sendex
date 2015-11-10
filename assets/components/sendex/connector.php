@@ -1,17 +1,17 @@
 <?php
-/** @noinspection PhpIncludeInspection */
+
 require_once dirname(dirname(dirname(dirname(__FILE__)))) . '/config.core.php';
-/** @noinspection PhpIncludeInspection */
 require_once MODX_CORE_PATH . 'config/' . MODX_CONFIG_KEY . '.inc.php';
-/** @noinspection PhpIncludeInspection */
 require_once MODX_CONNECTORS_PATH . 'index.php';
-/** @var Sendex $Sendex */
-$Sendex = $modx->getService('sendex', 'Sendex', $modx->getOption('sendex_core_path', null, $modx->getOption('core_path') . 'components/sendex/') . 'model/sendex/');
+
+$corePath = $modx->getOption('sendex_core_path', null, $modx->getOption('core_path') . 'components/sendex/');
+require_once $corePath . 'model/sendex/sendex.class.php';
+$modx->sendex = new Sendex($modx);
+
 $modx->lexicon->load('sendex:default');
 
-// handle request
-$corePath = $modx->getOption('sendex_core_path', null, $modx->getOption('core_path') . 'components/sendex/');
-$path = $modx->getOption('processorsPath', $Sendex->config, $corePath . 'processors/');
+/* handle request */
+$path = $modx->getOption('processorsPath', $modx->sendex->config, $corePath . 'processors/');
 $modx->request->handleRequest(array(
 	'processors_path' => $path,
 	'location' => '',

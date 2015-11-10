@@ -7,11 +7,11 @@ $tmp = array(
 		'type' => 'textfield',
 		'value' => 'tpl.modExtra.item',
 	),
-	'sortby' => array(
+	'sortBy' => array(
 		'type' => 'textfield',
 		'value' => 'name',
 	),
-	'sortdir' => array(
+	'sortDir' => array(
 		'type' => 'list',
 		'options' => array(
 			array('text' => 'ASC', 'value' => 'ASC'),
@@ -21,7 +21,7 @@ $tmp = array(
 	),
 	'limit' => array(
 		'type' => 'numberfield',
-		'value' => 10,
+		'value' => 5,
 	),
 	'outputSeparator' => array(
 		'type' => 'textfield',

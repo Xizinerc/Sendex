@@ -1,38 +1,34 @@
-Sendex.panel.Home = function (config) {
+Sendex.panel.Home = function(config) {
 	config = config || {};
-	Ext.apply(config, {
-		baseCls: 'modx-formpanel',
-		layout: 'anchor',
-		/*
-		 stateful: true,
-		 stateId: 'sendex-panel-home',
-		 stateEvents: ['tabchange'],
-		 getState:function() {return {activeTab:this.items.indexOf(this.getActiveTab())};},
-		 */
-		hideMode: 'offsets',
-		items: [{
-			html: '<h2>' + _('sendex') + '</h2>',
-			cls: '',
-			style: {margin: '15px 0'}
-		}, {
-			xtype: 'modx-tabs',
-			defaults: {border: false, autoHeight: true},
-			border: true,
-			hideMode: 'offsets',
-			items: [{
-				title: _('sendex_items'),
-				layout: 'anchor',
-				items: [{
-					html: _('sendex_intro_msg'),
-					cls: 'panel-desc',
-				}, {
-					xtype: 'sendex-grid-items',
-					cls: 'main-wrapper',
+	Ext.apply(config,{
+		border: false
+		,baseCls: 'modx-formpanel'
+		,items: [{
+			html: '<h2>'+_('sendex')+'</h2>'
+			,border: false
+			,cls: 'modx-page-header container'
+		},{
+			xtype: 'modx-tabs'
+			,bodyStyle: 'padding: 10px'
+			,defaults: { border: false ,autoHeight: true }
+			,border: true
+			,activeItem: 0
+			,hideMode: 'offsets'
+			,items: [{
+				title: _('sendex_items')
+				,items: [{
+					html: _('sendex_intro_msg')
+					,border: false
+					,bodyCssClass: 'panel-desc'
+					,bodyStyle: 'margin-bottom: 10px'
+				},{
+					xtype: 'sendex-grid-items'
+					,preventRender: true
 				}]
 			}]
 		}]
 	});
-	Sendex.panel.Home.superclass.constructor.call(this, config);
+	Sendex.panel.Home.superclass.constructor.call(this,config);
 };
-Ext.extend(Sendex.panel.Home, MODx.Panel);
-Ext.reg('sendex-panel-home', Sendex.panel.Home);
+Ext.extend(Sendex.panel.Home,MODx.Panel);
+Ext.reg('sendex-panel-home',Sendex.panel.Home);
